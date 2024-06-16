@@ -42,8 +42,8 @@ class GUI(tk.Tk):
         # currency to
         self.to_label = ttk.Label(self, text="To:")
         self.to_label.grid(row=2, column=0)
-        self.to_combibox = ttk.Combobox(self, values=list(self.currencies.keys()))
-        self.to_combibox.grid(row=2, column=1)
+        self.to_combobox = ttk.Combobox(self, values=list(self.currencies.keys()))
+        self.to_combobox.grid(row=2, column=1)
 
         # Amount Entry
         self.entry_frame = ttk.Frame(self)
@@ -72,7 +72,7 @@ class GUI(tk.Tk):
 
     def convert_currency(self):
         from_currency = self.from_combobox.get()
-        to_currency = self.to_combibox.get()
+        to_currency = self.to_combobox.get()
         try:
             from_rate = self.currencies[from_currency]["rate"]
             to_rate = self.currencies[to_currency]["rate"]
