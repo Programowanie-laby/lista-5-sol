@@ -13,12 +13,10 @@ def load_currencies_from_api() -> list[dict]:
 
 
 def process_raw_currencies(raw_currencies) -> dict:
-    currencies = {}
-    for currency in raw_currencies:
-        code = currency["code"]
-        name = currency["currency"]
-        rate = currency["mid"]
-        currencies[code] = {"name": name, "rate": rate}
+    currencies = dict(
+        (currency["code"], {"name":  currency["currency"], "rate": currency["mid"]})
+        for currency in raw_currencies
+    )
     currencies["PLN"] = {"name": "Złoty polski", "rate": 1.0}
     return currencies
 
